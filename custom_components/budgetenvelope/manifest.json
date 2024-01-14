@@ -1,0 +1,16 @@
+{
+  "domain": "budgetenvelope",
+  "name": "Envelope Budgeting",
+  "codeowners": [
+    "@mpschr"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/mpschr/budgetenvelope-homeassistant",
+  "homekit": {},
+  "iot_class": "local_push",
+  "requirements": [],
+  "ssdp": [],
+  "zeroconf": [],
+  "version": "0.0.1"
+}
