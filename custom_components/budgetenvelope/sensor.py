@@ -40,8 +40,8 @@ SENSORS: tuple[BudgetEnvelopeEntityDescription, ...] = [
     ),
     (
         BudgetEnvelopeEntityDescription(
-            key="Budget State Percentage",
-            name="Budget State %",
+            key="Budget State Percent",
+            name="Budget State Percent",
             icon="mdi:cash-multiple",
             value=lambda data: data["state_percentage"],
             suggested_display_precision=0,

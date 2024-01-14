@@ -1,6 +1,6 @@
 {
   "domain": "budgetenvelope",
-  "name": "Envelope Budgeting",
+  "name": "Budget Envelopes",
   "codeowners": [
     "@mpschr"
   ],
@@ -12,5 +12,5 @@
   "requirements": [],
   "ssdp": [],
   "zeroconf": [],
-  "version": "0.0.2a"
+  "version": "0.0.3"
 }
