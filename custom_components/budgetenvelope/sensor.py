@@ -29,8 +29,8 @@ class BudgetEnvelopeEntityDescription(SensorEntityDescription):
 SENSORS: tuple[BudgetEnvelopeEntityDescription, ...] = [
     (
         BudgetEnvelopeEntityDescription(
-            key="Budget State",
-            name="Budget State",
+            key="Balance",
+            name="Balance",
             icon="mdi:cash-multiple",
             value=lambda data: data["state"],
             suggested_display_precision=0,
@@ -40,8 +40,8 @@ SENSORS: tuple[BudgetEnvelopeEntityDescription, ...] = [
     ),
     (
         BudgetEnvelopeEntityDescription(
-            key="Budget State Percent",
-            name="Budget State Percent",
+            key="Balance Percent",
+            name="Balance Percent",
             icon="mdi:cash-multiple",
             value=lambda data: data["state_percentage"],
             suggested_display_precision=0,
@@ -60,6 +60,17 @@ SENSORS: tuple[BudgetEnvelopeEntityDescription, ...] = [
             native_unit_of_measurement="CHF",
         )
     ),
+    (
+        BudgetEnvelopeEntityDescription(
+            key="Adjustment",
+            name="Adjustment",
+            icon="mdi:wallet-outline",
+            value=lambda data: data["adjustment"],
+            suggested_display_precision=0,
+            device_class=SensorDeviceClass.MONETARY,
+            native_unit_of_measurement="CHF",
+        )
+    ),    
     (
         BudgetEnvelopeEntityDescription(
             key="Carryover",
