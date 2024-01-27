@@ -30,7 +30,7 @@ SENSORS: tuple[BudgetEnvelopeEntityDescription, ...] = [
     (
         BudgetEnvelopeEntityDescription(
             key="Balance",
-            name="Balance",
+            name="", # keep main sensor name short in display
             icon="mdi:cash-multiple",
             value=lambda data: data["state"],
             suggested_display_precision=0,
@@ -41,7 +41,7 @@ SENSORS: tuple[BudgetEnvelopeEntityDescription, ...] = [
     (
         BudgetEnvelopeEntityDescription(
             key="Balance Percent",
-            name="Balance Percent",
+            name="Percent", # keep main sensor name short in display
             icon="mdi:cash-multiple",
             value=lambda data: data["state_percentage"],
             suggested_display_precision=0,
@@ -117,13 +117,17 @@ class BudgetEnvelopeSensor(BudgetEnvelopeBaseEntity, SensorEntity):
         """Initialize VolkswagenID vehicle sensor."""
         super().__init__(coordinator, index)
 
+        #sensor configuration
         self.entity_description = sensor
         self._coordinator = coordinator
-        self._attr_name = f"{self.data['envelope']} {sensor.name}"
         self._attr_unique_id = f"envbudget-{self.data['envelope']}-{sensor.key}"
         if sensor.native_unit_of_measurement:
             self._attr_native_unit_of_measurement = sensor.native_unit_of_measurement
-        #    self._attr_state_class = SensorStateClass.MEASUREMENT
+
+        # display only the shortest needed name
+        # remove the parent envelopes
+        subenvelope_name = self.data['envelope'].split(':')[-1]
+        self._attr_name = f"{subenvelope_name} {sensor.name}"
 
     @property
     def native_value(self) -> StateType:
