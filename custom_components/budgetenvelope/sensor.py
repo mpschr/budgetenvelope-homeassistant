@@ -21,7 +21,7 @@ from .const import DOMAIN
 
 @dataclass
 class BudgetEnvelopeEntityDescription(SensorEntityDescription):
-    """Describes Volkswagen ID sensor entity."""
+    """Describes Budget Envelope sensor entity."""
 
     value: Callable = lambda x, y: x
 
@@ -31,7 +31,8 @@ SENSORS: tuple[BudgetEnvelopeEntityDescription, ...] = [
         BudgetEnvelopeEntityDescription(
             key="Balance",
             name="", # keep main sensor name short in display
-            icon="mdi:cash-multiple",
+            icon="mdi:email-open",
+            #icon="mdi:chart-waterfall",
             value=lambda data: data["state"],
             suggested_display_precision=0,
             device_class=SensorDeviceClass.MONETARY,
@@ -41,8 +42,8 @@ SENSORS: tuple[BudgetEnvelopeEntityDescription, ...] = [
     (
         BudgetEnvelopeEntityDescription(
             key="Balance Percent",
-            name="Percent", # keep main sensor name short in display
-            icon="mdi:cash-multiple",
+            name="%", # keep main sensor name short in display
+            icon="mdi:percent-box",
             value=lambda data: data["state_percentage"],
             suggested_display_precision=0,
             device_class=SensorDeviceClass.BATTERY,
@@ -53,7 +54,7 @@ SENSORS: tuple[BudgetEnvelopeEntityDescription, ...] = [
         BudgetEnvelopeEntityDescription(
             key="Budget",
             name="Budget",
-            icon="mdi:wallet-outline",
+            icon="mdi:email",
             value=lambda data: data["budget"],
             suggested_display_precision=0,
             device_class=SensorDeviceClass.MONETARY,
@@ -64,7 +65,7 @@ SENSORS: tuple[BudgetEnvelopeEntityDescription, ...] = [
         BudgetEnvelopeEntityDescription(
             key="Adjustment",
             name="Adjustment",
-            icon="mdi:wallet-outline",
+            icon="mdi:cash-edit",
             value=lambda data: data["adjustment"],
             suggested_display_precision=0,
             device_class=SensorDeviceClass.MONETARY,
@@ -75,7 +76,7 @@ SENSORS: tuple[BudgetEnvelopeEntityDescription, ...] = [
         BudgetEnvelopeEntityDescription(
             key="Carryover",
             name="Carryover",
-            icon="mdi:hand-coin-outline",
+            icon="mdi:transfer-right",
             value=lambda data: data["carryover"],
             suggested_display_precision=0,
             device_class=SensorDeviceClass.MONETARY,
