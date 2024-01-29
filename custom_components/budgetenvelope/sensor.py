@@ -122,6 +122,7 @@ class BudgetEnvelopeSensor(BudgetEnvelopeBaseEntity, SensorEntity):
         self.entity_description = sensor
         self._coordinator = coordinator
         self._attr_unique_id = f"envbudget-{self.data['envelope']}-{sensor.key}"
+        self.entity_id = f"sensor.{self.data['envelope']}-{sensor.key}"
         if sensor.native_unit_of_measurement:
             self._attr_native_unit_of_measurement = sensor.native_unit_of_measurement
 
