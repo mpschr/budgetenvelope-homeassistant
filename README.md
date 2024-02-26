@@ -21,6 +21,19 @@ if `config` is a default for home assisstant - if you have another name, adapt t
 - Install via HACS, custom repository-download (details to follow) 
 - Follow configuration steps
 
+# Example Device
+
+Below is what a budget envelope in home assistant look like. The example is the Charging budget for the car. What is not visibile this envelope is a sub-envelope of the `car` envelope.
+
+![Budget Envelope Device](budgetenvelope-device.png?raw=true "Budget Envelope Device")
+
+Following sensors are made available (if supplied by the the json file):
+
+- `Charging`: State of Balance.
+- `Charging %`: State of Balance in % - referring to the monthly budget.
+- `Charging Budget`: The actual budget of the current month, including adjustments(s), but not including the carryover.
+- `Charging Adjustment`: Adjustments made to the budget envelope. E.g. transfers from another envelope or one-off adjustments for the current month.
+- `Charging Carryover`: The carryover (leftover money) in the envelope from last month. Negative values allowed, altough not recommended ;).
 
 # Attribution
 
